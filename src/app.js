@@ -1,7 +1,7 @@
 var page = require("page");
 var ko = require("knockout");
 var $ = require("jquery");
-var loginPage = require("./login-page");
+var loginPage = require("./pages/login-page/login-page");
 
 /**
  * Bootstrap needs jQuery exposed as global variable.
