@@ -7,6 +7,6 @@ function SignupPageModel(params){
 }
 
 ko.components.register('signup-page', {
-    viewModel : SignupPageModel,
+    viewModel : SignupPageModel,
     template : template
 });

@@ -7,6 +7,6 @@ function LoginPageModel(params){
 }
 
 ko.components.register('login-page', {
-    viewModel : LoginPageModel,
-    template : template
+	viewModel : LoginPageModel,
+	template : template
 });
