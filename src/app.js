@@ -6,5 +6,5 @@ require("./config/route-config.ts");
  * https://github.com/gowravshekar/bootstrap-webpack
  */
 require('expose?$!expose?jQuery!jquery');
-var boostrap = require("bootstrap");
+require("bootstrap");
 
