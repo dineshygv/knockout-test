@@ -14,7 +14,9 @@
     "jquery": "^3.1.0",
     "knockout": "^3.4.0",
     "page": "^1.7.1",
-    "raw-loader": "^0.5.1"
+    "raw-loader": "^0.5.1",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

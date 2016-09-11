@@ -1,4 +1,7 @@
 var routeConfig = require("./config/route-config");
+var tstest = require("./tstest.ts").default;
+
+console.log(new tstest("dinesh").print());
 
 /**
  * Bootstrap needs jQuery exposed as global variable.

@@ -4,6 +4,17 @@ module.exports = {
     filename: "build/bundle.js"
   },
   debug: true,
-  devtool: "source-map"
+  devtool: "source-map",
+  module: {
+    loaders: [
+      /**
+       * http://www.jbrantly.com/typescript-and-webpack/
+       */
+      { 
+        test: /\.ts$/, 
+        loader: 'ts-loader' 
+      }
+    ]
+  }
   //watch: true
 }

@@ -2,7 +2,7 @@ var page = require("page");
 var $ = require("jquery");
 var ko = require("knockout");
 
-var loginPage = require("../pages/login-page/login-page");
+var loginPage = require("../pages/login-page/login-page.ts");
 var signupPage = require("../pages/signup-page/signup-page");
 
 

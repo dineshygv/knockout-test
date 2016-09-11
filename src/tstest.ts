@@ -9,4 +9,7 @@ export default class Test{
     sayName() {
         this.id=20;
     }
+    print() {
+        return this.name;
+    }
 }
