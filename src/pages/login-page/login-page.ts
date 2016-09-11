@@ -2,7 +2,7 @@ import * as ko from "knockout";
 
 var template = require("raw!./login-page.html");
 
-export default class LoginPageModel {
+export default class LoginPageViewModel {
     email: string;
     userName: string;
 
@@ -13,6 +13,6 @@ export default class LoginPageModel {
 }
 
 ko.components.register('login-page', {
-	viewModel : LoginPageModel,
+	viewModel : LoginPageViewModel,
 	template : template
 });

@@ -1,10 +1,15 @@
-var page = require("page");
-var $ = require("jquery");
-var ko = require("knockout");
+import * as page from "page";
+import * as ko from "knockout";
+import * as $ from "jquery";
 
-var loginPage = require("../pages/login-page/login-page.ts");
-var signupPage = require("../pages/signup-page/signup-page");
-
+/**
+ * If you import a module but don't use it,
+ * ts compiler will remove it from the compiled file.
+ * The work-around is to use plain require which typescript
+ * won't understand but webpack will bundle the file.
+ */
+require("../pages/login-page/login-page.ts");
+require("../pages/signup-page/signup-page.ts");
 
 /**
  * Setting base to /# is required to add hash param to URL
@@ -18,26 +23,29 @@ page.base('/#');
  * routeSettings.pageParams are additional params obtained from URL to 
  * pass to the page component.
  */
-var routeSettings = ko.observable({
+let routeSettings = ko.observable({
     page : '',
     pageParams : {}
 });
 
-page(['/', 'login'], function() {    
+let goToLoginPage =  () => {
     routeSettings({
         page : 'login-page',
         pageParams : {}    
     });
-});
+}
 
-page('signup', function() {
+page('/', goToLoginPage);
+page('login', goToLoginPage);
+
+page('signup', () => {
     routeSettings({
         page : 'signup-page',
         pageParams : {}    
     });
 });
 
-$(function() {
+$(() => {
     page.start();    
     ko.applyBindings(routeSettings, document.getElementById("container"));
 });
