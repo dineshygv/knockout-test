@@ -13,7 +13,15 @@ var knownOptions = {
 
 var options = minimist(process.argv.slice(2), knownOptions);
 
-gulp.task('webpack', function(callback) {
+var gulpTypings = require("gulp-typings");
+ 
+gulp.task('installTypings',function(){
+    var stream = gulp.src("./typings.json")
+        .pipe(gulpTypings());  
+    return stream; 
+});
+
+gulp.task('webpack', ['installTypings'], function(callback) {
     webpack(webpackConfig, function(err, stats) {
         callback(err);
     });
@@ -28,15 +36,17 @@ gulp.task('zipfiles', ['webpack'], function () {
      * !file_path means exclude 'file_path'
      */
 	var packagePaths = ['**', 
-					'!**/_package/**', 
-					'!**/typings/**',
+					'!**/_package/**',                     
+					'!_package', 					
                     '!**/node_modules/**',
                     '!node_modules',
+                    '!**/typings/**',                    
 					'!typings', 
-					'!_package', 
 					'!gulpfile.js',
                     '!webpack.config.js',
                     '!package.json',
+                    '!typings.json',
+                    '!tsconfig.json',
                     '!README.md',
                     ];
 	
@@ -45,4 +55,4 @@ gulp.task('zipfiles', ['webpack'], function () {
         .pipe(gulp.dest(options.packagePath));
 });
 
-gulp.task('default', ['webpack', 'zipfiles']);
+gulp.task('default', ['installTypings', 'webpack', 'zipfiles']);
